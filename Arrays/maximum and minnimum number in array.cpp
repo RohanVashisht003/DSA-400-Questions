@@ -56,7 +56,6 @@ public:
 
 int main()
 {
-    //int arr[100];
     int n;
     cin>>n;
     Pair p;
