@@ -1,39 +1,37 @@
 #include<iostream>
+#include<algorithm>
 using namespace std;
 
-void minimise(int arr[100], int n){
-if(n==1){
-    return;
-}
-sort(arr,arr+n);
-
-int ans=arr[n-1]-arr[0];
-
-//corner elements
-int small=arr[0]+k;
-int big=arr[n-1]-k;
-
-if(small>big){
-    swap(small,big);
-}
-
-//traverse middle elements
-for(int i=1; i<n-1; i++)
+int main()
 {
-    int subtract=arr[i]-k;
-    int add=arr[i]+k;
+    int t;
+    cin>>t;
+    while(t--){
+        int k,n;
+        cin>>k>>n;
+        int a[n];
 
-}
-}
-int main(){
-int k;
-cin>>k;
-int n;
-cin>>n;
-int arr[100];
-for(int i=0; i<n; i++)
-{
-    cin>>arr[i];
-}
-minimise(arr,n);
+        for(int i=0; i<n; i++)
+        {
+            cin>>a[i];
+        }
+        sort(a,a+n);
+        int mx=a[n-1];
+        int mi=a[0];
+        int mid=(a[0]+a[n-1])/2;
+
+        for(int i=0; i<n; i++)
+        {
+            if(a[i]<=mid){
+                a[i]+=k;
+            }
+            else{
+                a[i]-=k;
+            }
+        }
+        sort(a,a+n);
+        cout<<min(mx-mi,a[n-1]-a[0])<<endl;
+
+    }
+
 }
