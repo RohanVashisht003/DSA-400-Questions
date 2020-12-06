@@ -19,7 +19,6 @@ int main()
             set1.insert(k);
         }
 
-
         for(int i=0; i<m; i++)
         {
             cin>>k;
